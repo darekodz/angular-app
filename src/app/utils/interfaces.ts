@@ -25,9 +25,9 @@ export interface AuthDataModel {
     password: string;
 }
 export interface Message {
-    username?: string,
-    clientX: number,
-    clientY: number
+    username?: string;
+    clientX: number;
+    clientY: number;
 }
 export interface ItemModel {
     id?: number;

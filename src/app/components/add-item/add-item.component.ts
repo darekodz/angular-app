@@ -18,12 +18,12 @@ export class AddItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  open(content){
+  open(content) {
     this.myModal = this.modalService.open(content);
   }
 
-  sendForm(form: NgForm){
-    if(form.valid){
+  sendForm(form: NgForm) {
+    if (form.valid) {
       this.newItem.next(form.value);
       this.myModal.close();
     } else {

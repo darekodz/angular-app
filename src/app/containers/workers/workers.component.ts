@@ -29,7 +29,7 @@ export class WorkersComponent implements OnInit {
   actionFromDG({ actionType, payload }) {
     this.workerService.remove(payload).subscribe((resp) => {
       this.fetchData();
-    })
+    });
   }
 
 }

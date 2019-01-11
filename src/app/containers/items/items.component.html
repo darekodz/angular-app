@@ -9,7 +9,7 @@
       <div class="col-2">
 
         <select class="form-control" [value]="filters.value.itemsPerPage" #ipp (change)="updateFilters('itemsPerPage', ipp.value)">
-          <option *ngFor="let opt of [2, 5, 10]">{{opt}}</option>
+          <option *ngFor="let opt of [5, 20, 50]">{{opt}}</option>
         </select>
 
       </div>

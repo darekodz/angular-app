@@ -14,10 +14,10 @@ export class WorkersService implements HttpServiceInterface {
     return this.http.get(Api.WORKERS_END_POINT);
   }
   add(item: any): Observable<any> {
-    throw new Error("Method not implemented.");
+    throw new Error('Method not implemented.');
   }
   update(item: any): Observable<any> {
-    throw new Error("Method not implemented.");
+    throw new Error('Method not implemented.');
   }
   remove(id: any): Observable<any> {
     return this.http.delete(Api.WORKERS_END_POINT + '/' + id);

@@ -21,11 +21,11 @@ export class ItemsComponent implements OnInit {
     { key: 'id', type: 'button', header: 'Delete', action: 'delete' },
   ];
   filters: BehaviorSubject<any> = new BehaviorSubject({
-    itemsPerPage: 5,
+    itemsPerPage: 20,
     currentPage: 1,
     title: '',
     priceFrom: '',
-  })
+  });
 
   newItem: Subject<any> = new Subject();
 
@@ -35,14 +35,14 @@ export class ItemsComponent implements OnInit {
     ) {
     this.filters.subscribe((value) => {
       this.fetchItems();
-    })
+    });
 
     this.newItem.subscribe((value) => {
-      this.itemService.add(value).subscribe((resp)=>{
+      this.itemService.add(value).subscribe((resp) => {
         console.log(resp);
         this.fetchItems();
-      })
-    })
+      });
+    });
    }
 
   private fetchItems() {
@@ -55,25 +55,25 @@ export class ItemsComponent implements OnInit {
   ngOnInit() {
   }
 
-  updateFilters(key, value: number){
+  updateFilters(key, value: number) {
     this.filters.next({
       ...this.filters.value,
       [key]: Number(value)
     });
   }
 
-  actionFromDG({actionType, payload}){
+  actionFromDG({actionType, payload}) {
     switch (actionType) {
       case 'more':
         this.router.navigate(['/items', payload]);
         break;
 
       case 'delete':
-        this.itemService.remove(payload).subscribe((resp)=>{
+        this.itemService.remove(payload).subscribe((resp) => {
           this.fetchItems();
-        })
+        });
         break;
-    
+
       default:
         break;
     }

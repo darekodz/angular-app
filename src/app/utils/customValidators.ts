@@ -11,23 +11,23 @@ export class CustomValidators {
         //     if (group.hasOwnProperty(key)) {
         //         console.log(key);
         //         const element = group[key];
-                
+
         //     }
         // }
 
         // if(group.)
 
-        if(Object.values(group.value).includes(true)) return;
+        if (Object.values(group.value).includes(true)) { return; }
 
-        return { atLeastOneOptionShouldBeSelected: true }
+        return { atLeastOneOptionShouldBeSelected: true };
     }
 
     static pastDateReq(control: AbstractControl): ValidationErrors | null {
-        
+
         if (Date.parse(control.value) < Date.now()) {
             return null;
         }
-        
-        return { pastDateRequired: true }
+
+        return { pastDateRequired: true };
     }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators'
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-item-detail',
@@ -19,7 +19,7 @@ export class ItemDetailComponent implements OnInit {
     // })
 
     this.id$ = this.activatedRoute.params.pipe(
-      map((data)=>{
+      map((data) => {
         return data.id;
       })
     );
