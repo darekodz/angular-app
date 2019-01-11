@@ -1,0 +1,6 @@
+<form #f="ngForm">
+  <label *ngFor="let control of controls">
+    {{control}}
+    <input [id]="'search-by-' + control" type="text" ngModel class="form-control" [name]="control">
+  </label>
+</form>

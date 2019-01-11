@@ -1,0 +1,27 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th *ngFor="let el of config">{{ el.header | uppercase }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of data">
+      <td *ngFor="let col of config">
+        <div [ngSwitch]="col.type">
+          <div *ngSwitchCase="'input'">
+            <input type="text" value="{{item[col.key]}}">
+          </div>
+          <div *ngSwitchCase="'image'">
+            <img [src]="item[col.key]" alt="image" width="50"> 
+          </div>
+          <div *ngSwitchCase="'button'">
+            <button (click)="action(col.action, item[col.key])" class="btn btn-primary">{{col.header}}</button>
+          </div>
+          <div *ngSwitchDefault>
+            {{item[col.key]}}
+          </div>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

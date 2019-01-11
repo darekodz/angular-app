@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-6">
+    <form [formGroup]="form">
+      <div class="form-group">
+        <input type="text" formControlName="username" class="form-control">
+        <div class="badge badge-danger">
+          {{ form.get('username').errors | json }}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input type="date" formControlName="birdthDate" class="form-control">
+        <div class="badge badge-danger">
+          {{ form.get('birdthDate').errors | json }}
+        </div>
+      </div>
+
+      <div formGroupName="hobbies">
+        <label class="badge badge-info m-1" *ngFor="let hobby of form.get('hobbies').value|mapToIterable">
+          {{hobby}}
+          <input type="checkbox" [formControlName]="hobby">
+        </label>
+        <div class="badge badge-danger">
+          {{ form.get('hobbies').errors | json }}
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+  <div class="col-6">
+    <pre>{{form.value | json}}</pre>
+  </div>
+</div>
